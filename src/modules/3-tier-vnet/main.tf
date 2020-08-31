@@ -27,7 +27,7 @@ resource "azurerm_subnet" "subnet2" {
   name                 = "subnet2"
   resource_group_name  = var.group
   virtual_network_name = azurerm_virtual_network.main.name
-  address_prefixes     = ["10.0.0.0/24"]
+  address_prefixes     = ["10.0.0.0/25"]
 
   delegation {
     name = "acctestdelegation"
