@@ -1,3 +1,10 @@
+
+
+on:
+  push:
+    branches:
+    - '*'
+
 jobs:
     terraform:
         env:
@@ -6,24 +13,24 @@ jobs:
             ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
             ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
             SOURCE_DIR: ${{ github.workspace }}/src/01-simple-network
-steps:
-- name: Checkout
-  uses: actions/checkout@v2
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
 
-- name: Setup Terraform
-  uses: hashicorp/setup-terraform@v1.1.0
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1.1.0
 
-- name: Terraform Init
-  run: terraform init $SOURCE_DIR
+    - name: Terraform Init
+      run: terraform init $SOURCE_DIR
 
-- name: Terraform Validate
-  id: validate
-  run: terraform validate  $SOURCE_DIR -no-color
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate  $SOURCE_DIR -no-color
 
-- name: Terraform Plan
-  id: plan
-  run: terraform plan $SOURCE_DIR -no-color
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan $SOURCE_DIR -no-color
 
-- name: Terraform Apply
-  if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-  run: terraform apply $SOURCE_DIR -auto-approve
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      run: terraform apply $SOURCE_DIR -auto-approve
