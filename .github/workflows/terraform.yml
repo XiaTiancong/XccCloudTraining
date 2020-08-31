@@ -1,7 +1,7 @@
 #The name of the workflow, will be displayed on the Github actions page
 name: Continuous Deployment
 # when to execute it, similar to Azure DevOps trigger keyword
-on: push
+on: [push, pull_request]
 
 jobs:
     terraform:
