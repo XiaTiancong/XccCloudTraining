@@ -1,0 +1,16 @@
+# .github/workflows/hello-world.yml
+#The name of the workflow, will be displayed on the Github actions page
+name: Continuous Deployment
+# when to execute it, similar to Azure DevOps trigger keyword
+on: push
+
+# list of jobs to execute
+jobs:
+  hello-job:
+    name: Greeting
+    # which OS to use when running this action
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print a greeting
+      run: |
+        echo Hello World!
