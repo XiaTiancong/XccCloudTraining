@@ -1,9 +1,6 @@
-
-
-on:
-  push:
-    branches:
-    - '*'
+name: Continuous Deployment
+# when to execute it, similar to Azure DevOps trigger keyword
+on: push
 
 jobs:
     terraform:
@@ -13,6 +10,7 @@ jobs:
             ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
             ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
             SOURCE_DIR: ${{ github.workspace }}/src/01-simple-network
+        runs-on: ubuntu-latest
         steps:
         - name: Checkout
           uses: actions/checkout@v2
