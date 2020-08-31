@@ -10,9 +10,9 @@ jobs:
     name: Greeting
     # which OS to use when running this action
     runs-on: ubuntu-latest
+    env:
+      secret: ${{secrets.TOP_SECRET}}
     steps:
     - name: Print a greeting
-      run: 
-        curl -H "Accept: application/vnd.github.v3+json" https://github.com/XiaTiancong/XccCloudTraining/settings/secrets
-        |
-        echo Hello World!
+      run: |
+        echo $secret
