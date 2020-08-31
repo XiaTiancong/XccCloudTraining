@@ -22,9 +22,9 @@ jobs:
         - name: Terraform Init
           run: terraform init $SOURCE_DIR
 
-        - name: Terraform Validate
-          id: validate
-          run: terraform validate  $SOURCE_DIR -no-color
+        # - name: Terraform Validate
+        #   id: validate
+        #   run: terraform validate  $SOURCE_DIR -no-color
 
         # - name: Terraform Plan
         #   id: plan

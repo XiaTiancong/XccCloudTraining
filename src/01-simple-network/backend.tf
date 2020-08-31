@@ -1,6 +1,6 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "rg-network-terraform-backends"
+    resource_group_name  = "rg-network-terraform-backends-tiancong"
     storage_account_name = "terraformbackends012"
     container_name       = "tfstates-network"
     key                  = "01-simple-network.tfstate"
